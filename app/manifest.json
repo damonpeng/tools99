@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+
+  "name": "Tools99",
+  "short_name": "Tools99",
+  "description": "Tools99 is used to inject JavaScript into current page.",
+  "version": "1.2",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon.png"
+  },
+
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "http://tools99.kaifage.com/"
+  ],
+  "content_security_policy":"script-src 'self' https://www.google-analytics.com; object-src 'self'",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  }
+}
