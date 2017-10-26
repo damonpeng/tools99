@@ -1,8 +1,8 @@
 [
-	{
-		"group": "Private",
-		"name": "Example 1",
-		"content": "alert('code here...')",
-		"provider": "damon"
-	}
+  {
+    "group": "Private",
+    "name": "Example 1",
+    "content": "alert('code here...')",
+    "provider": "damon"
+  }
 ]
