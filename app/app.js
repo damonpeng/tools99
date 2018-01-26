@@ -465,6 +465,44 @@ let APP = (function(){
 // can override by page.js
 APP.onLaunch = null;
 
+/**
+ * enhance console.log
+ * 1. auto console.table
+ * 2. auto get class name @todo
+ * 3. inherit code line @todo
+ * 4. break variable quote
+ */
+let C = function() {
+    let result = [],
+        outputTable = false,
+        isObjectArray,
+        output = [];
+
+    isObjectArray = obj => {
+        const type = obj && typeof obj==='object' && obj.toString();
+
+        return /^(\[object Object\],?)+$/.test(type) ? true : false
+    }
+
+    if (isObjectArray(arguments[0])) {
+        outputTable = true
+    };
+    
+    !console.table && (outputTable = false);
+
+    // break variables quote to avoid data change, but will lose some node such as function
+    Array.from(arguments).forEach(item => {
+        if (!outputTable && item && typeof item==='object') {
+            output.push(JSON.stringify(item, undefined, (outputTable ? 0 : 2)));
+        } else {
+            output.push(item);
+        }
+    });
+
+    console[outputTable ? 'table' : 'log'].apply(null, output);
+}
+
+
 // init
 document.addEventListener('DOMContentLoaded', function() {
     APP.onLoad();

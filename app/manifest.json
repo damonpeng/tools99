@@ -3,12 +3,11 @@
 
   "name": "Tools99",
   "short_name": "Tools99",
-  "description": "Tools99 is used to inject JavaScript into current page.",
-  "version": "1.2",
+  "description": "Tools99 is a bookmarklet toolkit that includes useful scripts and websites.",
+  "version": "1.4",
   "icons": {
-    "16": "icon16.png",
     "48": "icon48.png",
-    "128": "icon.png"
+    "128": "icon128.png"
   },
 
   "permissions": [
@@ -16,9 +15,9 @@
     "activeTab",
     "http://tools99.kaifage.com/"
   ],
-  "content_security_policy":"script-src 'self' https://www.google-analytics.com; object-src 'self'",
+  "content_security_policy":"script-src 'self' https://www.google-analytics.com; object-src 'self'; img-src *",
   "browser_action": {
     "default_icon": "icon.png",
-    "default_popup": "popup.html"
+    "default_popup": "app.html"
   }
 }

@@ -1,0 +1,16 @@
+[
+  {
+    "group": "Private Tool",
+    "name": "Auto Login",
+    "type": "script",
+    "content": "alert('javascript code here...')",
+    "provider": "Author name"
+  },
+  {
+    "group": "Favorite Sites",
+    "name": "Google",
+    "type": "url",
+    "content": "https://www.google.com/",
+    "provider": "Google Inc."
+  }
+]

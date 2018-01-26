@@ -1,0 +1,46 @@
+.card__title,
+.card__title.active,
+.card__title.active:hover,
+.card__title.active:focus {
+	background: #9dc46b;
+	border-color: transparent;
+	display: block;
+	font-size: 120%;
+}
+.card__items {
+	background: #9dc46b;
+	border-color: #90af5a;
+	padding: 0 5px 5px;
+}
+.card__item {
+	display: inline-block;
+	margin: 2px 5px;
+	background: #fff;
+	color: #333;
+	opacity: 0.8;
+	border-radius: 5px;
+	padding: 5px 5px;
+	border: 1px solid #999;
+}
+.card__item:hover {
+	background: #f70;
+	color: #fff;
+	text-decoration: none;
+}
+.card__item--script {}
+.card__item--url {}
+.site__icon {
+	margin-top: -4px;
+	width: 16px;
+}
+.card__item--edit {
+	display: none;
+	margin-left: 10px;
+	opacity: 0.8
+}
+.card__item--edit:hover {
+	opacity: 1
+}
+.mode__edit .card__item--edit {
+	display: inline-block;
+}
