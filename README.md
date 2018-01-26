@@ -12,11 +12,11 @@ It also can be found at the release directory.
 ## Configuration
 Some sample scripts are provided as 'sample.json', by click the right top cornner 'setting', and choose "import from url".
 
-Before import, please remember to remove all comment lines.
+Before use, please remember to remove all the comment lines.
 
 ```json
   [
-  	// script sample
+    // script sample
     {
       // Item with the same group name will be grouped.
       "group": "Private Tool",
