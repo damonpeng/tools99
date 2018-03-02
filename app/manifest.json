@@ -4,7 +4,7 @@
   "name": "Tools99",
   "short_name": "Tools99",
   "description": "Tools99 is a bookmarklet toolkit that includes useful scripts and websites.",
-  "version": "1.4",
+  "version": "1.5",
   "icons": {
     "48": "icon48.png",
     "128": "icon128.png"

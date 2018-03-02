@@ -224,9 +224,13 @@ Page({
                                         value: v
                                     });
                                 });
+                                items.length < 1 && ( items.push({
+                                    label: 'No group.',
+                                    value: ''
+                                }) );
                                 items.push({
                                     label: '-- Create New... --',
-                                    value: ''
+                                    value: '-- Create New... --'
                                 });
                                 return items;
                             })(),
@@ -237,13 +241,15 @@ Page({
                                         $('#group option:first').prop('selected', true);
                                     }, 0);
                                 },
-                                change: function() {
+                                change: function(e) {
                                     // append the new option and select it.
-                                    if (! this.value) {
+                                    if (this.value === '-- Create New... --') {
                                         let name = $.trim(window.prompt('Group Name:'));
 
                                         name && $(this).append(`<option value="${name}">${name}</option>`)
                                             .find(`option[value="${name}"]`).prop('selected', true);
+
+                                        window.event? window.event.returnValue = false : e.preventDefault();
                                     }
                                     return false;
                                 }
@@ -395,7 +401,7 @@ Page({
                         postfix : '<button id="btnImportUrl" class="btn btn-sm btn-success" style="position: absolute;right: 15px;bottom: 0;">Import</button>',
                         value   : 'http://tools99.kaifage.com/list.json',
                         events  : {
-                            complete: function() {
+                            complete: function(e) {
                                 $('#page-settings').find('#btnImportUrl').unbind('click').click(() => {
                                     let url = $('#import_url').val();
 
@@ -403,6 +409,8 @@ Page({
 
                                     APP.util.getRemoteData(url, content => {
                                         _m.import(content);
+
+                                        window.event? window.event.returnValue = false : e.preventDefault();
                                     }, () => {
                                         alert('Network error, try later.');
                                     });

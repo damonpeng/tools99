@@ -450,13 +450,21 @@ let APP = (function(){
 
     // main entrance
     I.onLoad = function() {
+        timepot.tick('domReady');
+
         bindPageEvents();
+        timepot.tick('eventBinded');
 
         initDB();
+        timepot.tick('dbInited');
 
         APP.onLaunch && APP.onLaunch();
+        timepot.tick('onLauch');
 
         initAnalytics();
+        timepot.tick('analyticsLoaded');
+
+        C(timepot.getResult())
     };
 
     return I;
@@ -502,6 +510,26 @@ let C = function() {
     console[outputTable ? 'table' : 'log'].apply(null, output);
 }
 
+/**
+ * 打点计时统计
+ */
+let timepot = [];
+timepot.tick = function(label) {
+    this.push({
+        label: label||'',
+        value: + new Date
+    });
+};
+timepot.getResult = function() {
+    var interval = [];
+
+    for (var i=0, l=this.length; i<l-1; i++) {
+        interval.push( (this[i+1].label || (i+1)) +':'+ (this[i+1].value - this[i].value) );
+    }
+
+    return interval.length > 0 ? ((this[this.length-1].value - this[0].value)/1000).toFixed(2) +'s (' + interval.join(', ') +')' : 'null';
+};
+timepot.tick('t0');
 
 // init
 document.addEventListener('DOMContentLoaded', function() {
